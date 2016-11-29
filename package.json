@@ -1,0 +1,31 @@
+{
+  "name": "medium_scrapper",
+  "version": "1.0.0",
+  "description": "An application to scrape medium.com and extract all its hyperlinks",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vik228/medium_scrapper.git"
+  },
+  "keywords": [
+    "medium",
+    "hyperlink",
+    "extractor"
+  ],
+  "author": "vikas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vik228/medium_scrapper/issues"
+  },
+  "homepage": "https://github.com/vik228/medium_scrapper#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "lodash": "^4.17.2",
+    "q": "^1.4.1",
+    "q-map": "^0.2.0",
+    "request": "^2.79.0"
+  }
+}
