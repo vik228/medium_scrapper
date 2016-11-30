@@ -4,10 +4,11 @@ var cheerio = require('cheerio');
 var q = require('q');
 q.map = require('q-map').map;
 var _string = require('lodash/string');
-var currentUrls = [];
-var executedUrls = {};
-var hyperlinks = [];
-var pagesRemaining = 0;
+
+var currentUrls = []; //holds the number of pages to be scrapped.Max entries will be equal to {maxPagesToCrawl}
+var executedUrls = {}; //keeps track of all the visited urls
+var hyperlinks = []; //stores all the hyperlinks and their texts
+var pagesRemaining = 0; // Number of links to be traversed in the next bulk request
 
 /**
  * formats the url that starts with //:medium.com to http://medium.com/
@@ -79,7 +80,6 @@ var processRequest = function(url) {
 var processBulkRequest = function(maxNumRequest, callback) {
     (function performBulkOperation() {
         var currentChunk = [];
-        console.log("picking chunck size of ", currentUrls.length);
         currentChunk = currentUrls.splice(0, currentUrls.length);
         var allPromise = q.map(currentChunk, processRequest, maxNumRequest);
         allPromise.then(function() {
